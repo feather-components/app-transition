@@ -36,7 +36,7 @@
 </style>
 
 <script>
-	import Router from 'vue_router';
+	import Router from 'vue-router';
 
 	let init = Router.prototype.init;
 
