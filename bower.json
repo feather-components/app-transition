@@ -1,6 +1,6 @@
 {
   "name": "app-transition",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于vue，实现页面切换时，使用app滑动淡入淡出的动画效果",
   "main": "index.js",
   "author": "zhanghao <jsyczhanghao@sina.com>",

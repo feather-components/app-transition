@@ -10,6 +10,7 @@
 <style>
 	.app-transition-router{
 	    position: absolute;
+	    -webkit-transition: all .5s cubic-bezier(.55, 0, .1, 1);
 	    transition: all .5s cubic-bezier(.55, 0, .1, 1);
 	}
 
