@@ -1,0 +1,19 @@
+{
+  "name": "app-transition",
+  "version": "1.0.0",
+  "description": "AppTransition ================ 基于vue和vue-router，使用app滑动淡入淡出的页面切换动画",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feather-components/app-transition.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/feather-components/app-transition/issues"
+  },
+  "homepage": "https://github.com/feather-components/app-transition#readme"
+}
