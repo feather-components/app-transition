@@ -6,7 +6,6 @@
     </transition>
 </template>
 
-
 <style>
 	.app-transition-router{
 	    position: absolute;
@@ -72,20 +71,10 @@
 			};
 		},
 
-		mounted(){
-			this.inited = false;
-		},
-
 		watch: {
 			'$route'(to, from){
 	            var ft = from.query.timestamp || 0, tt = to.query.timestamp || 0;
-
-	            if(!this.inited){
-	                this.inited = true;
-	                this.name = 'fade';
-	            }else{
-	                this.name = tt > ft ? 'app-transition-left' : 'app-transition-right';
-	            }
+	            this.name = tt > ft ? 'app-transition-left' : 'app-transition-right';
 	        }
 		}
 	}

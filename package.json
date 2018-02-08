@@ -1,6 +1,6 @@
 {
   "name": "app-transition",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "AppTransition ================ 基于vue和vue-router，使用app滑动淡入淡出的页面切换动画",
   "main": "index.js",
   "scripts": {
