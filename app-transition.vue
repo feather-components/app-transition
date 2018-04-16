@@ -1,38 +1,40 @@
 <template>
-	<transition :name="name">
+	<transition :name="transitionName" :duration="{leave: 1000}">
 		<keep-alive>
 			<router-view class="app-transition-router"></router-view>
 		</keep-alive>
     </transition>
 </template>
 
-
 <style>
 	.app-transition-router{
 	    position: absolute;
-	    -webkit-transition: all .5s cubic-bezier(.55, 0, .1, 1);
-	    transition: all .5s cubic-bezier(.55, 0, .1, 1);
+	    transition: transform .5s cubic-bezier(.55, 0, .1, 1);
+	    -webkit-transition: transform .5s cubic-bezier(.55, 0, .1, 1);
 	}
 
 	.app-transition-left-enter{
-	    -webkit-transform: translate(100%, 0);
+		-webkit-transform: translate(100%, 0);
 	    transform: translate(100%, 0);
 	}
 
 	.app-transition-left-leave-active{
-	    -webkit-transform: translate(-30%, 0);
-	    transform: translate(-30%, 0);
-	}
-
-	.app-transition-right-enter{
-	    -webkit-transform: translate(-30%, 0);
-	    transform: translate(-30%, 0);
+		-webkit-transform: translate(-10%, 0);
+	    transform: translate(-10%, 0);
 	    z-index: 10 !important;
 	}
 
+	.app-transition-right-enter{
+		-webkit-transform: translate(-10%, 0);
+	    transform: translate(-10%, 0);
+	}
+	.app-transition-right-enter-active{
+	    z-index: 99 !important;
+	}
 	.app-transition-right-leave-active{
-	    -webkit-transform: translate(100%, 0);
+		-webkit-transform: translate(100%, 0);
 	    transform: translate(100%, 0);
+	    z-index: 100 !important;
 	}
 </style>
 
@@ -72,20 +74,16 @@
 			};
 		},
 
-		mounted(){
-			this.inited = false;
+		computed: {
+			transitionName(){
+				return 'app-transition-' + this.name;
+			}
 		},
 
 		watch: {
 			'$route'(to, from){
 	            var ft = from.query.timestamp || 0, tt = to.query.timestamp || 0;
-
-	            if(!this.inited){
-	                this.inited = true;
-	                this.name = 'fade';
-	            }else{
-	                this.name = tt > ft ? 'app-transition-left' : 'app-transition-right';
-	            }
+	            this.name = tt > ft ? 'left' : tt < ft ? 'right' : 'fade';
 	        }
 		}
 	}
